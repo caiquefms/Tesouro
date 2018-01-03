@@ -1,0 +1,86 @@
+
+# fonte = pygame.font.SysFont("monospace", 20)
+# turnindic = fonte.render("Black",True,(139,125,107),(0,0,0,0))
+# piecesleft = fonte.render("Peca",True,(139,125,107),(0,0,0,0))
+#
+# screen.blit(turnindic, (0, display_height*7+10))
+# screen.blit(piecesleft, (display_hidth*5-140, display_height*7+10))
+
+
+def Esta_livre(self, posicao_x, posicao_y):  # Verifica se a posicao do tabuleira está livre
+    linha, coluna = posicao_x, posicao_y
+    if ((linha < 0) or (coluna < 0)
+        or (linha < self.qtd_linha - 1) or (coluna < self.qtd_coluna - 1)
+        ):
+        return
+    else:
+        return self.__tabuleiro[linha][coluna] == 0
+
+
+def Logica_do_movimento(self, peca, posicao_x, posicao_y):  # Verifica a lógica do movimento da peça
+    return ((peca.posicao_x == posicao_x) or
+            (peca.posicao_y == posicao_y))
+
+
+def movimento(self, linha, coluna):
+    # cima,baixo,esquerda,direita
+    mov_linha = []
+    mov_coluna = []
+
+
+def Logica_do_ataque(self, peca, posicao_x, posicao_y):  # Verifica a  lógica do ataque da peça
+    return (abs(peca.posicao_x - posicao_x) ==
+            abs(peca.posicao_y - posicao_y))
+
+
+def Pode_se_mover(self, peca, posicao):
+    posicao_x = posicao[0]
+    posicao_y = posicao[1]
+    if (self.Esta_livre(peca, posicao_x, posicao_y) and
+            self.Logica_do_movimento(peca, posicao_x, posicao_y) and
+            self.Logica_do_ataque(peca, posicao_x, posicao_y)
+        ):
+        return True
+
+#
+    # def img_mov(self,linha, coluna, x, y):#imagem de movimento
+    #     if((linha+y<0)or(linha+y>6)):return
+    #     if((coluna+x<0)or(coluna+x>4)):return
+    #
+    #     if (self.__logica.tabuleiro[linha +y][coluna + x] == 0):
+    #
+    #         self.__pecas_selecionadas.append([coluna + x, linha + y])
+    #
+    #         self.__screen.blit(self.__imagem.movimento,
+    #                            self.posicao_pixel(coluna + x, linha + y))
+    #
+    # def imagem_ataque_tabuleiro(self,linha,coluna):
+    #
+    #     self.__pecas_selecionadas.append([coluna, linha])
+    #     for i in [-1, 1]:
+    #         self.img_atq(linha, coluna, 1, i)
+    #         self.img_atq(linha, coluna, -1,i )
+    #         self.img_atq(linha, coluna, i, i)
+    #         self.img_atq(linha, coluna, i, i)
+    #
+    #
+    # def img_atq(self,linha,coluna,x,y):
+    #     if ((linha + y < 0) or (linha + y > 6)): return
+    #     if ((coluna + x < 0) or (coluna + x > 4)): return
+    #
+    #     if (self.__logica.tabuleiro[linha +y][coluna + x] != 0):
+    #         #if(self.__logica.tabuleiro[linha +y][coluna + x] != 0):
+    #         self.__pecas_selecionadas.append([coluna + x, linha + y])
+    #         self.__screen.blit(self.__imagem.ataque,
+    #                            self.posicao_pixel(coluna + x, linha + y))
+
+
+    # def imagem_escolha_tabuleiro(self,linha, coluna):  # definicao da imagem durante a escolha no tabuleiro
+    #
+    #     self.__pecas_selecionadas.append([coluna,linha])
+    #
+    #     self.__screen.blit(self.__imagem.escolha,
+    #                        self.posicao_pixel(coluna, linha))
+    #     for i in [-1, 1]:
+    #         self.img_mov(linha, coluna, 0, i)
+    #         self.img_mov(linha, coluna, i, 0)
